@@ -20,7 +20,7 @@ async function uploadPDF() {
     const formData = new FormData();
     formData.append("file", file);
 
-    const response = await fetch("http://127.0.0.1:5000/upload", {
+    const response = await fetch("https://pdf-quiz-generator-1t5g.onrender.com/upload", {
         method: "POST",
         body: formData
     });
@@ -253,9 +253,9 @@ window.onload = function () {
     showHistory();
 };
 
-// ================= AUTH SYSTEM =================
 
-// REGISTER
+
+
 function register() {
     const user = document.getElementById("regUser")?.value;
     const pass = document.getElementById("regPass")?.value;
@@ -313,7 +313,7 @@ async function sendReset() {
     }
 
     try {
-        const res = await fetch("http://127.0.0.1:5000/forgot-password", {
+        const res = await fetch("https://pdf-quiz-generator-1t5g.onrender.com/forgot-password", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
