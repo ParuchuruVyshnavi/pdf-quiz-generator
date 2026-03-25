@@ -9,6 +9,9 @@ from email.mime.text import MIMEText
 EMAIL_USER = os.environ.get("EMAIL_USER")
 EMAIL_PASS = os.environ.get("EMAIL_PASS")
 
+print("EMAIL_USER:", EMAIL_USER)
+print("EMAIL_PASS:", EMAIL_PASS)
+
 app = Flask(__name__)
 CORS(app)
 
