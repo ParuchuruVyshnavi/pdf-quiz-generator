@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>PDF Quiz Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <h1>📄 PDF to Quiz Generator</h1>
+
+    <div class="container">
+
+        
+        <button onclick="logout()">Logout</button><br><br>
+
+        <input type="file" id="pdfFile"><br><br>
+        <button onclick="uploadPDF()">Generate Quiz</button>
+
+        
+        <h3 id="timer">⏳ Time: 60s</h3>
+
+    
+        <progress id="progressBar" value="0" max="100"></progress>
+
+      
+        <div id="questionNumbers"></div>
+
+       
+        <div id="quiz"></div>
+
+       
+        <div>
+            <button onclick="prevQuestion()">⬅ Previous</button>
+            <button onclick="nextQuestion()">Next ➡</button>
+        </div><br><br>
+
+       
+        <button onclick="submitQuiz()">Submit Quiz</button>
+
+        
+        <h2 id="result"></h2>
+
+    </div>
+
+    
+    <h2>🏆 Leaderboard</h2>
+    <div id="leaderboard"></div>
+
+   
+    <h2>📜 Quiz History</h2>
+    <div id="history" class="card"></div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
