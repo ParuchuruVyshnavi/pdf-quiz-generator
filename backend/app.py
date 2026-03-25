@@ -3,7 +3,11 @@ import pdfplumber
 import random
 from flask_cors import CORS
 import smtplib
+import os
 from email.mime.text import MIMEText
+
+EMAIL_USER = os.environ.get("EMAIL_USER")
+EMAIL_PASS = os.environ.get("EMAIL_PASS")
 
 app = Flask(__name__)
 CORS(app)
@@ -73,7 +77,7 @@ def forgot_password():
     try:
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.starttls()
-        server.login("paruchuruvyshnavi87@gmail.com", "ostbtfawuwrqvuzv")
+        server.login(EMAIL_USER, EMAIL_PASS)
         server.send_message(msg)
         server.quit()
 
