@@ -91,12 +91,9 @@ def forgot_password():
     print("Mail sent successfully")
     return jsonify({"message": "Email sent successfully"})
 
-except Exception as e:
+ except Exception as e:
     print("FULL ERROR:", e)
     return jsonify({"error": str(e)})
-
-    
-
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)
