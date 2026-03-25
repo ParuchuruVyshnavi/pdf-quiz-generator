@@ -63,7 +63,7 @@ def forgot_password():
     data = request.json
     email = data.get("email")
 
-    reset_link = "http://127.0.0.1:5500/frontend/reset.html"
+    reset_link = "https://pdf-quizgenerator.netlify.app/reset.html"
 
     msg = MIMEText(f"Click here to reset password: {reset_link}")
     msg['Subject'] = "Password Reset"
