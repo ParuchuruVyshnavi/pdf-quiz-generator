@@ -77,19 +77,25 @@ def forgot_password():
     msg['From'] = "paruchuruvyshnavi87@gmail.com"
     msg['To'] = email
 
-    try:
-        server = smtplib.SMTP('smtp.gmail.com', 587)
-        server.starttls()
-        server.login(EMAIL_USER, EMAIL_PASS)
-        server.send_message(msg)
-        server.quit()
+  try:
+    server = smtplib.SMTP('smtp.gmail.com', 587, timeout=10)  # 🔥 add timeout
+    server.ehlo()
+    server.starttls()
+    server.ehlo()
 
-        print("Mail Sent Successfully")
-        return jsonify({"message": "Email sent successfully"})
+    server.login(EMAIL_USER, EMAIL_PASS)
 
-    except Exception as e:
-        print("Error:", e)
-        return jsonify({"error": str(e)})
+    server.send_message(msg)
+    server.quit()
+
+    print("Mail sent successfully")
+    return jsonify({"message": "Email sent successfully"})
+
+except Exception as e:
+    print("FULL ERROR:", e)
+    return jsonify({"error": str(e)})
+
+    
 
 
 if __name__ == "__main__":
