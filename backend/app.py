@@ -65,6 +65,7 @@ def upload_pdf():
 
 
 
+
 @app.route('/forgot-password', methods=['POST'])
 def forgot_password():
     data = request.json
@@ -77,23 +78,23 @@ def forgot_password():
     msg['From'] = "paruchuruvyshnavi87@gmail.com"
     msg['To'] = email
 
-try:
-    server = smtplib.SMTP('smtp.gmail.com', 587, timeout=10)  
-    server.ehlo()
-    server.starttls()
-    server.ehlo()
+    try:
+      server = smtplib.SMTP('smtp.gmail.com', 587, timeout=10)  
+      server.ehlo()
+      server.starttls()
+      server.ehlo()
 
-    server.login(EMAIL_USER, EMAIL_PASS)
+      server.login(EMAIL_USER, EMAIL_PASS)
 
-    server.send_message(msg)
-    server.quit()
+      server.send_message(msg)
+      server.quit()
 
-    print("Mail sent successfully")
-    return jsonify({"message": "Email sent successfully"})
+      print("Mail sent successfully")
+      return jsonify({"message": "Email sent successfully"})
 
- except Exception as e:
-    print("FULL ERROR:", e)
-    return jsonify({"error": str(e)})
+   except Exception as e:
+      print("FULL ERROR:", e)
+      return jsonify({"error": str(e)})
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)
