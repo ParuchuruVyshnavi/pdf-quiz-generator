@@ -77,8 +77,8 @@ def forgot_password():
     msg['From'] = "paruchuruvyshnavi87@gmail.com"
     msg['To'] = email
 
-  try:
-    server = smtplib.SMTP('smtp.gmail.com', 587, timeout=10)  # 🔥 add timeout
+try:
+    server = smtplib.SMTP('smtp.gmail.com', 587, timeout=10)  
     server.ehlo()
     server.starttls()
     server.ehlo()
